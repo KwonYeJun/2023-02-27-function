@@ -5,13 +5,38 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    #root{
+      width: 200px;
+      height: 200px;
+      background-color: aquamarine;
+      font-size: 4px;
+      border: 1px solid black;
+    }
+  </style>
 </head>
 <body>
   <div id="root"></div>
   <script>
 
     let root = document.getElementById("root");
-    console.dir(root);
+    console.dir(root.style);
+    root.style.width = "300px";
+    root.style.border = "3px solid red"
+  
+    let list_color = ["red", "blue", "green","yellow"];
+    let counter = 0;
+    function ccolor(){
+      root.style.backgroundColor = list_color[counter];
+      ++counter;
+
+      if(counter >= list_color.length){
+        counter = 0;
+      }
+
+  }
+    root.addEventListener("mouseup",ccolor);
+
 
   </script>
 </body>
