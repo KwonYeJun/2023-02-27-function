@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="root">
+    <div id="first"></div>
+    <div id="second"></div>
+  </div>
+
+  <script>
+
+    let list = ["root", "first", "second"];
+    let counter = 0;
+
+
+    const root = document.getElementById('root');
+
+    root.style.width = "500px";
+    root.style.height = "500px";
+    root.style.border = "1px solid black";
+
+    const first = document.getElementById('first');
+
+    first.style.width = "200px";
+    first.style.height = "200px";
+    first.style.border = "1px solid black";
+
+    const second = document.getElementById('second');
+
+    second.style.width = "200px";
+    second.style.height = "200px";
+    second.style.border = "1px solid black";
+
+
+    let list_color = ["red", "blue", "green", "yellow"];
+
+
+    function make(tag, text,color) {
+      let element = document.createElement(tag);
+
+      element.innerText = text;
+      element.style.width = "200px";
+      element.style.height = "200px";
+      element.style.backgroundColor = color;
+
+      return element;
+
+    }
+    // for(let i = 0; i < list.length; i++){
+    //   const list[i] = document.getElementById(list[i]);
+
+
+    // }
+    first.appendChild(make("section", "hello!",list_color[counter])); //first div자식으로 마크 함수를 불러 온다.
+
+  
+    function ccolor() {
+      make("div", "hell", list_color[counter]);
+      //배경색을 리스트 컬러 배열에 카운트 만큼해서 출력 한다.
+      ++counter; //카운트를 증가 시킨다
+      if (counter === list_color.length) {
+        counter = 0;
+      }
+    }
+
+    first.addEventListener("click", ccolor);
+
+
+
+
+  </script>
+
+</body>
+
+</html>

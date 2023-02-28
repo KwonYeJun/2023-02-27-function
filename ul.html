@@ -13,15 +13,51 @@
   <div id="root">
 
   </div>
+
+
+
   <script>
-    let root = document.getElementById("root");
-    console.dir(root);
-    let ul = document.createElement("ul");
-    root.appendChild(ul);
-    let bb = document.createElement("li");
-    ul.appendChild(bb);
-    bb.append("hellow");
-    bb.textContent= "world";
+    function dataFunc(a, b, c, d) {
+      let obj = {
+        parentdata: document.querySelector(a),
+        chilrendata: document.createElement(b),
+        grandChilrendata: document.createElement(c),
+        grandChilrenTextdata: d
+      }
+    
+      return obj;
+    }
+    let tagArray = ["div","footer","section"]; // 위에서 부터 아래로 먼저 데이터 값을 넣어야 들어간다.
+
+    let dataform = dataFunc("*", tagArray[1], "li", "hello"); // 호출
+
+  console.dir(document.querySelector);
+  console.dir(document.getElementById);
+    
+    let root = dataform.parentdata;
+    console.log(root);
+    let aa = dataform.chilrendata;
+    root.appendChild(aa);
+    let bb = dataform.grandChilrendata;
+    aa.appendChild(bb);
+    bb.textContent = dataform.grandChilrenTextdata;
+    console.log(root);
+      console.log(aa);
+      console.log(bb);
+
+//1.하나 하나 되는지 안되는지 확인
+//2. 공통된게 있으면 묶어 보자 : 매번 바꿔야 겠으면 래핑 해보자
+
+
+
+    // let root = document.querySelector("root");
+    // console.dir(root);
+    // let ul = document.createElement("ul");
+    // root.appendChild(ul);
+    // let bb = document.createElement("li");
+    // ul.appendChild(bb);
+    // bb.append("hellow");
+    // bb.textContent= "world";
   </script>
 
 </body>
